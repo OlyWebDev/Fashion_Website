@@ -1,0 +1,736 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import "compass";
+@import "compass/utilities";
+@import "compass/css3/user-interface";
+@import "susy";
+@import "breakpoint";
+
+// START GENERAL
+$baseColor: #e7e7e7;
+$secondaryColor:#2e1b30;
+$baseSpacing: 2em;
+$mainFont: 'Lato', sans-serif;
+$headlineFont:'Source Serif Pro', serif;
+$smallSize: 600px;
+$mediumSize: 1050px;
+$galleryImages: 8;
+$susy: (
+	columns: 12,
+	gutters: .25
+);
+
+
+@function set-text-color($color) {
+	@if (lightness($color) > 50) {
+		@return transparentize(#000,0.3);
+	} @else {
+		@return transparentize(#fff,0.3);
+	}
+}
+// box-size
+*, *:before, *:after { 
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box; 
+  box-sizing: border-box;
+  
+}
+// END GENERAL 
+
+// START HEADER
+body {
+	font-family: $mainFont;
+	background-color: $baseColor;
+	font-size: 62.5%;
+	&.homeLocation {
+		overflow: hidden;
+	}
+	&.pageLocation {
+		header {
+			background-color: $baseColor;
+		}
+	}
+	&.contactLocation {
+		header {
+			background-color: transparentize($baseColor,0.15);
+		}
+	}
+	header {
+		height: 4.5*$baseSpacing;
+		background-color: transparentize($baseColor,0.15);
+		position: absolute;
+		width: 100%;
+		z-index: 1;
+				.nav_desktop {
+					display: none;
+				}
+				.nav_mobile {
+					width: 100%;
+					display: block;
+					position: absolute;
+					right: 0;
+					z-index: 10;
+						#nav-icon {
+							float: right;
+							width: $baseSpacing*3;
+						    height: $baseSpacing*5;
+						    position: relative;
+						    @include transform(rotate(0deg));
+						    @include transition-duration(0.5s);
+							@include transition-timing-function(ease-in-out);
+						    cursor: pointer;
+						    	span {
+							    	display: block;
+								    position: absolute;
+								    height: 3px;
+								    width: 70%;
+								    background: lighten($secondaryColor,15%);
+								    border-radius: 9px;
+								    opacity: 1;
+								    left: 0;
+								    @include transform(rotate(0deg));
+								    @include transition-duration(0.25s);
+									@include transition-timing-function(ease-in-out);
+						    	}
+						    	&:first-child {
+									top: $baseSpacing*1.4;
+								}
+								span:nth-child(2) {
+									top: 1.2em;
+								}
+								span:last-child {
+									top: 2.4em;
+								}
+						}
+						#nav-icon.open {
+							span:first-child {
+							    top: 1.4em;
+							    width: 0%;
+							    left: 50%;
+							}
+						}
+						#nav-icon.open {
+							span:nth-child(2) {
+								@include transform(rotate(45deg));
+						    }
+						}
+						#nav-icon.open {
+							span:nth-child(3) {
+								@include transform(rotate(-45deg));
+								top: 1.2em;
+							}
+						}
+						#nav-icon.open {
+							span:nth-child(4) {
+						    top: 1.4em;
+						    width: 0%;
+						    left: 50%;
+						    }
+						}
+						.dropdown_mobile {
+							text-align: center;
+							margin-top: $baseSpacing*4.5;
+								a {
+								    text-decoration: none;
+									color: lighten($secondaryColor,15%);
+									@include transition-duration(0.25s);
+									@include transition-timing-function(ease-in);
+								        &:hover {
+												color: $secondaryColor*2.5;
+								        	}
+								        }
+								span.transperant {
+									display: block;
+							        width: 100%;
+							        border-bottom: 1px solid lighten($secondaryColor,15%);
+							        padding: $baseSpacing*0.8 0;
+							        font-weight: 400;
+							        font-size: $baseSpacing;
+							        height: $baseSpacing/2;
+							        background-color: transparentize($baseColor,0.15);
+							        line-height: 0.15em;
+							        	&:first-child {
+								        	border-top: 1px solid lighten($secondaryColor,15%);
+							        	}
+							        	&:last-child {
+								        	border-bottom: transparent;
+							        	}
+							       	}
+						        }
+						        span.opaque {
+							        @extend span.transperant;
+							        background-color: transparentize($baseColor,0) !important;
+						        }
+						.hide {
+							display: none;
+						}
+						.show {
+							display: block !important;
+
+						}
+						.animated {
+							animation-duration: 0.75s;
+						}
+				}
+			.logo {
+				display: inline-block;
+				max-width: 200px;
+				position: absolute;
+				z-index: 10000;
+				margin: $baseSpacing/2 $baseSpacing*0.75;
+			    	img {
+				    	width: 80%;
+			    	}
+			}
+		@include breakpoint($mediumSize) {
+			height: 0;
+			.nav_mobile {
+				display: none;
+			}
+			.logo {
+			    	img {
+				    	width: 100%;
+			    	}
+			}
+			.nav_desktop {
+				display: block;
+				margin-top: 2*$baseSpacing;
+					 ul {
+						display: inline-flex;
+						place-content: space-evenly;
+						width: $baseSpacing*22.5;
+						float: right;
+					    	li > a {
+						    	color: lighten($baseColor, 100%);
+								text-decoration: none;
+								font-size: $baseSpacing;
+								font-weight: 300;
+								@include transition-duration(0.25s);
+								@include transition-timing-function(ease-in);
+							    	&:hover {
+								    	opacity: 0.8;
+							    	}	
+						}
+					}
+				}
+			.dark_color {
+				ul {
+					li {
+						a {
+							color: set-text-color(lighten($baseColor,100%));
+							font-weight: 400;
+							}
+						}
+					}
+				}
+		}
+	}
+	.bg_img {
+		background-image: url('../img/bg1.jpg');
+		height: 100vh;
+		width: 100%;
+		background-position: center center;
+		background-repeat: no-repeat;
+	    background-size: cover;
+	    	.intro_lines {
+		    	position: absolute;
+			    top: 76%;
+			    left: 10px;
+			    color: #fff;
+			    text-shadow: 1px 1px 1px #241a11ad;
+				    h1 {
+					    font-size: 2.67em;
+					    line-height: $baseSpacing/1.9;
+				    }
+				    h3 {
+					    font-size: 2.3em;
+					    padding-top: 0.15em;
+					    line-height: $baseSpacing/1.8;
+				    }
+			@include breakpoint(465px) {
+				h1 {
+					font-size: $baseSpacing*2;
+				}
+				h3 {
+					font-size: 2.36em;
+					padding-top: $baseSpacing/20;
+				}
+			}
+
+			@include breakpoint($smallSize) {
+				left: 25px;
+
+				h1 {
+					font-size: $baseSpacing*2.5;
+				}
+				h3 {
+					font-size: 2.95em;
+				}
+			}
+			@include breakpoint($mediumSize) {
+					h1{
+						font-size: $baseSpacing*4.5;
+					}
+				}
+			}
+	}
+	.main_content {
+		h2 {
+			font-family: $headlineFont;
+			position: relative;
+			text-align: center;
+			top: $baseSpacing*1.3;
+			font-size: $baseSpacing*2;
+			color: #7c5966;
+			margin-bottom: 1.7*$baseSpacing;
+		}
+		$fashionHistories: 
+					twenties "../img/flappers.jpg"  "From Victorian Era To Flappers",
+					fifties "../img/fifties.jpg"  "Fashion Golden Age of Haute Couture",
+					seventies "../img/seventies.jpg"  "Rebellious Fashion - Hippie, Punk, Disco",
+					modern   "../img/modern.jpg"  "Modern Fashion Trends and Fast Fashion";
+		@each $fashionHistory in $fashionHistories {
+			$name: nth($fashionHistory,1);
+			$path: nth($fashionHistory,2);
+			$content: nth($fashionHistory,3);
+			
+			.fashionHistory-#{$name} {
+				background: url($path) center 3% no-repeat;
+				border: 1px solid lighten($secondaryColor, 20%);
+				opacity: 0.9;
+				width: 100%;
+				height: 19*$baseSpacing;
+				background-size: cover;
+				position: relative;
+				margin-bottom: $baseSpacing/2;
+				@include transition-duration(0.5s);
+				@include transition-timing-function(ease-in);
+				&:hover {
+					//@include single-box-shadow(0px, 0px, $baseSpacing*70, 5px, transparentize(#888, 0.5), inset);
+					//@include single-box-shadow(0px, 0px, $baseSpacing*70, 5px, rgb(60, 50, 62), inset);
+					cursor: pointer;
+				}
+				&:after {
+					content: $content;
+					position: absolute;
+					background-color: transparentize($secondaryColor, 0.4);
+					width: 100%;
+					color: lighten($baseColor,100%);
+					font-size: 1.55em;
+					padding: $baseSpacing*1.23 $baseSpacing/3.5 $baseSpacing/2;
+					bottom: 0;
+					@include transition-duration(0.4s);
+					@include transition-timing-function(ease-in);
+				}
+				&:hover:after {
+						background-color: $secondaryColor;
+				}	
+				h4 {
+					font-size: $baseSpacing;
+					position: absolute;
+					color: lighten($baseColor,100%);
+					bottom: 37px;
+					z-index: 10;
+					left: 8px;			
+				}
+			}
+			.fashionHistory-fifties {
+				background-position-y: 26%;
+			}
+			@include breakpoint($smallSize) {
+				.fashionHistory-#{$name} {
+					width: 48.9%;
+					display: inline-block;
+				}
+				.fashionHistory-fifties, .fashionHistory-modern {
+					margin-left: $baseSpacing/2;
+				}
+			}
+			@include breakpoint(900px) {
+				.fashionHistory-#{$name} {
+					height: 60em;
+					margin-bottom: $baseSpacing/1.15;;
+				}
+				.fashionHistory-fifties, .fashionHistory-modern {
+					margin-left: $baseSpacing/1.15;
+				}
+			}
+			@include breakpoint($mediumSize) {
+				max-width: $mediumSize;
+				margin: auto;
+			}
+		}
+ 	}
+	    .singleHistory_wrapper{
+	    .banner_image {
+		    width: 100%;
+			margin-top: 107px;
+	    }
+	    $imageBanners: 
+		 		twenties "From Victorian Era To Flappers",
+				fifties "1950-1970: Fashion Golden Age",
+				seventies "1970-1990: Rebellious Fashion",
+				modern  "Modern Fashion Trends";
+		@each $imageBanner in $imageBanners {
+		    $name: nth($imageBanner,1);
+		    $content: nth($imageBanner,2);
+
+		   .imageBanner-#{$name} {
+		    position: relative;
+			color: lighten($baseColor,100%);
+			height: 1.7*$baseSpacing;
+			top: -$baseSpacing/2;
+			font-family: $headlineFont;
+			font-size: $baseSpacing;
+			background: #918792;
+			&:after {
+				content: $content;
+				line-height: 1.8*$baseSpacing;
+				display: flex;
+				place-content: center;
+			}
+	    }
+	    }
+	    p {
+		    @include span(12);
+			font-size: 0.8*$baseSpacing;
+			line-height: 0.7*$baseSpacing;
+			padding: 0 1em;
+	    }
+	    .text_andImage {
+		    	p {
+			    	@include span(12);
+					font-size: 0.8*$baseSpacing;
+					line-height: 0.7*$baseSpacing;
+					padding-top: $baseSpacing/2.6;
+		    	}
+		    	.side_image {
+			    	width: 100%;
+			    	padding: 1.2*$baseSpacing $baseSpacing;
+		    	}
+		    	@include breakpoint(800px) {
+			    	p {
+				    	@include span(5.8);
+			    	}
+					.side_image {
+						@include span(6 at 6);
+						float: right;
+				}
+			}
+	    }
+	    .nav_arrows {
+		        clear: both;
+				text-align: center;
+				padding: $baseSpacing/5 0 0;
+				font-size: 19px;
+				
+			    $nav_arrows: enabled, disabled;
+			    @each $nav_arrow in $nav_arrows {
+				.pageLink-#{$nav_arrow} {
+					@if $nav_arrow == enabled {
+					color: #565656;
+					}
+					@else if $nav_arrow == disabled {
+						color: #b7b7b7;
+					}
+					text-decoration: none;
+					padding: 0 $baseSpacing/6;
+					&:hover {
+						opacity: 0.9;
+						text-decoration: underline;
+						@if $nav_arrow == disabled {
+							text-decoration: none !important;
+						}
+					}
+				}
+	        }
+	    }
+	    @include breakpoint ($mediumSize) {
+		    & {
+			    width: $mediumSize;
+		        margin: auto;
+		    }
+		    @each $imageBanner in $imageBanners {
+			    $name: nth($imageBanner,1);
+			    
+			    .imageBanner-#{$name} {
+				    font-size: $baseSpacing*3;
+				    height: $baseSpacing;
+				    width: 97%;
+				    margin: auto;
+				    &:after {
+					    line-height: $baseSpacing*1.05;
+				    }
+			    }
+		    }
+		    p {
+			    margin-top: -$baseSpacing;
+		    }
+		    .text_andImage {
+		    	p {
+			    	margin-top: 0.4em; 
+			   	}
+			}
+	    }
+    }
+    .gallery_content {
+		@include container(31.6*$baseSpacing);
+		padding: $baseSpacing/2;
+		h2 {
+			font-family: $headlineFont;
+			position: relative;
+			text-align: center;
+			top: $baseSpacing*1.1;
+			font-size: $baseSpacing*2.5;
+			color: #7c5966;
+		}  
+		a:link, a:focus, a:active {
+			outline: none !important;
+		} 
+		@for $i from 1 through $galleryImages {
+			.galleryImage-#{$i} {
+				width: 100%;
+				height: 15*$baseSpacing;
+				background: URL('../img/gallery_img/#{$i}.jpg') center center no-repeat;
+				margin-bottom: $baseSpacing/2;
+				background-size: cover;
+				@include transition(all 0.4s ease-in-out);
+				&:hover {
+					background-blend-mode: multiply;
+					background-color: transparentize(darken($secondaryColor,100%), 0.8);	
+					@include transition(all 0.8s ease-in-out);				
+				}
+			}
+		}
+		    .galleryImage-1 {
+				margin-top: $baseSpacing*7.5;
+			}
+		@for $i from 2 through 4 {
+		    	.galleryImage-#{$i} {
+					background-position-y: 0;
+				}
+			}
+		@include breakpoint($smallSize*2/3) {
+			@for $i from 1 through $galleryImages {
+			.galleryImage-#{$i} {
+				height: $baseSpacing*20;
+			}
+		  }
+		}
+		@include breakpoint(647px) {
+			@for $i from 1 through $galleryImages {
+				.galleryImage-#{$i} {
+					width: 15*$baseSpacing;
+					height: 15*$baseSpacing;
+					display: inline-block;
+				}
+			}
+			@for $i from 1 through $galleryImages {
+			    @if ($i) % 2 == 0 {
+			        .galleryImage-#{$i} {
+			          margin-left: $baseSpacing/2;
+			        }
+		        }
+		    }
+		}
+		@include breakpoint(857px) {
+			@include container(42.1*$baseSpacing);
+			@for $i from 1 through $galleryImages {
+				.galleryImage-#{$i} {
+					width: 20*$baseSpacing;
+					height: 20*$baseSpacing;
+					background-size: contain;
+					margin-bottom: $baseSpacing;
+				}
+			}
+			@for $i from 1 through $galleryImages {
+			    @if ($i) % 2 == 0 {
+			        .galleryImage-#{$i} {
+			          margin-left: $baseSpacing;
+			        }
+		        }
+		    }
+		    @for $i from 1 through 2 {
+		    	.galleryImage-#{$i} {
+					margin-top: $baseSpacing*7.5;
+					}
+			}
+		}
+		@include breakpoint(1157px) {
+			@include container(114.2em);
+			@for $i from 1 through $galleryImages {
+				.galleryImage-#{$i} {
+					width: $baseSpacing*27.5;
+					height: $baseSpacing*27.5;
+				}
+			}
+		}
+    }
+    .bg_contact {
+		background-image: url('../img/contactBg.jpg');
+		height: 100vh;
+		width: 100%;
+		background-position: center center;
+		background-repeat: no-repeat;
+	    background-size: cover;
+	    visibility: hidden;
+	    h2 {
+		    visibility: visible;
+		    font-family: 'Tangerine', cursive;
+			position: relative;
+			text-align: center;
+			top: $baseSpacing*1.1;
+			font-size: $baseSpacing*2.5;
+			color: #7c5966;
+
+	    }
+	    form {
+		    visibility: visible;
+		    background-color: #e7e7e7;
+			position: relative;
+			top: 6.75*$baseSpacing;
+			text-align: center;
+			//height: 80vh;
+			    input {
+				    width: 89%;
+				    padding: $baseSpacing/2;
+				    font-size: 0.7*$baseSpacing;
+				    margin-bottom: $baseSpacing/2;
+				    @include border-radius(3px);
+				    border: 1px solid #bcbcbc;
+				    @include input-placeholder {
+						color: #bebebe;
+						font-family: $mainFont;
+						font-weight: 300;
+					}
+				    &[type=submit] {
+					    width: 4.5*$baseSpacing;
+						border: none;
+						background-color: #7c5966;
+						color: #fff;
+						font-size: 0.95*$baseSpacing;
+						font-family: $mainFont;
+						font-weight: 300;
+						padding: 0.75em;
+						&:focus {
+							outline: none;
+						}
+						&:hover {
+							opacity: 0.9;
+						}
+				    }
+				    &:focus {
+					    outline: 1px solid lighten($secondaryColor,50%);
+				    }
+			    }
+			    textarea {
+				    @extend input;
+				    padding: 3em $baseSpacing/2;
+				    @include input-placeholder {
+					    position: relative;
+					    top: -25px; 
+					}
+
+			    }
+			@include breakpoint(550px) {
+				height: auto;
+				background-color: transparent;
+				input {
+					width: 55%;
+					&[type=submit] {
+						width: 55%;
+					}
+				}
+			}
+	    }
+	    @include breakpoint(800px) {
+		    visibility: visible;
+		    h2,form {
+		    	float: right;
+				width: 600px;
+			}
+	    }
+
+	    @include breakpoint($mediumSize) {
+		    h2,form {
+				width: 800px;
+			}
+	    }
+	    @include breakpoint(1550px){
+		   h2,form {
+				display: inline-block;
+			} 
+			form {
+				clear: both;
+			}
+	    }
+	}
+	footer {
+		border-top: solid 1px #7b5965;
+		margin: $baseSpacing*1.5 $baseSpacing $baseSpacing;
+		.footer_border {
+			display: none;
+		}
+		.icon_wrapper {
+			text-align: center;
+			padding: $baseSpacing 0 $baseSpacing/2;
+			font-size: $baseSpacing/1.4;
+			.fa-instagram {
+			    width: 1.9em;
+				color: $baseColor;
+				cursor: pointer;
+				background-color: #565656;
+				padding: 0.42em;
+				border-radius: 50%;
+				text-align: center;
+				margin: 0 0.3em;
+				text-decoration: none;
+			}
+			.fa-facebook {
+				@extend .fa-instagram;
+				background-color: #4d6faa;
+			}
+			.fa-pinterest {
+				@extend .fa-instagram;
+				background-color: #cc3531;
+			}
+		}
+		.footer_text {
+			font-size: $baseSpacing/1.4;
+			text-align: center;
+			color: #545454;
+		}
+		@include breakpoint($mediumSize){
+		border-top: 0px;
+			.footer_border {
+				display: block;
+				width: 92.5%;
+				margin: $baseSpacing auto 0;
+			}
+			.icon_wrapper {
+				padding: 1.5em 0 $baseSpacing/2;
+			}
+			.footer_text {
+				font-size: $baseSpacing/1.3;
+			}
+		}
+	}
+	.overlay {
+	  background:rgba(0,0,0,.5);
+	  position:fixed;
+	  height:100%;
+	  width:100%;
+	  top:0;
+	  left:0;
+	  z-index: 0;
+	  display:none;
+	  &.show {
+		  display: block;
+	  }
+	}
+}
+

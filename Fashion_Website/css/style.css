@@ -1,0 +1,1386 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  background-color: #e7e7e7;
+  font-size: 62.5%;
+}
+body.homeLocation {
+  overflow: hidden;
+}
+body.pageLocation header {
+  background-color: #e7e7e7;
+}
+body.contactLocation header {
+  background-color: rgba(231, 231, 231, 0.85);
+}
+body header {
+  height: 9em;
+  background-color: rgba(231, 231, 231, 0.85);
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+body header .nav_desktop {
+  display: none;
+}
+body header .nav_mobile {
+  width: 100%;
+  display: block;
+  position: absolute;
+  right: 0;
+  z-index: 10;
+}
+body header .nav_mobile #nav-icon {
+  float: right;
+  width: 6em;
+  height: 10em;
+  position: relative;
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  -moz-transition-timing-function: ease-in-out;
+  -o-transition-timing-function: ease-in-out;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  cursor: pointer;
+}
+body header .nav_mobile #nav-icon span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 70%;
+  background: #5d3761;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -moz-transition-duration: 0.25s;
+  -o-transition-duration: 0.25s;
+  -webkit-transition-duration: 0.25s;
+  transition-duration: 0.25s;
+  -moz-transition-timing-function: ease-in-out;
+  -o-transition-timing-function: ease-in-out;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+body header .nav_mobile #nav-icon:first-child {
+  top: 2.8em;
+}
+body header .nav_mobile #nav-icon span:nth-child(2) {
+  top: 1.2em;
+}
+body header .nav_mobile #nav-icon span:last-child {
+  top: 2.4em;
+}
+body header .nav_mobile #nav-icon.open span:first-child {
+  top: 1.4em;
+  width: 0%;
+  left: 50%;
+}
+body header .nav_mobile #nav-icon.open span:nth-child(2) {
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+body header .nav_mobile #nav-icon.open span:nth-child(3) {
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  top: 1.2em;
+}
+body header .nav_mobile #nav-icon.open span:nth-child(4) {
+  top: 1.4em;
+  width: 0%;
+  left: 50%;
+}
+body header .nav_mobile .dropdown_mobile {
+  text-align: center;
+  margin-top: 9em;
+}
+body header .nav_mobile .dropdown_mobile a {
+  text-decoration: none;
+  color: #5d3761;
+  -moz-transition-duration: 0.25s;
+  -o-transition-duration: 0.25s;
+  -webkit-transition-duration: 0.25s;
+  transition-duration: 0.25s;
+  -moz-transition-timing-function: ease-in;
+  -o-transition-timing-function: ease-in;
+  -webkit-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+}
+body header .nav_mobile .dropdown_mobile a:hover {
+  color: #734478;
+}
+body header .nav_mobile .dropdown_mobile span.transperant, body header .nav_mobile .dropdown_mobile span.opaque {
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid #5d3761;
+  padding: 1.6em 0;
+  font-weight: 400;
+  font-size: 2em;
+  height: 1em;
+  background-color: rgba(231, 231, 231, 0.85);
+  line-height: 0.15em;
+}
+body header .nav_mobile .dropdown_mobile span.transperant:first-child, body header .nav_mobile .dropdown_mobile span.opaque:first-child {
+  border-top: 1px solid #5d3761;
+}
+body header .nav_mobile .dropdown_mobile span.transperant:last-child, body header .nav_mobile .dropdown_mobile span.opaque:last-child {
+  border-bottom: transparent;
+}
+body header .nav_mobile span.opaque {
+  background-color: #e7e7e7 !important;
+}
+body header .nav_mobile .hide {
+  display: none;
+}
+body header .nav_mobile .show {
+  display: block !important;
+}
+body header .nav_mobile .animated {
+  animation-duration: 0.75s;
+}
+body header .logo {
+  display: inline-block;
+  max-width: 200px;
+  position: absolute;
+  z-index: 10000;
+  margin: 1em 1.5em;
+}
+body header .logo img {
+  width: 80%;
+}
+@media (min-width: 1050px) {
+  body header {
+    height: 0;
+  }
+  body header .nav_mobile {
+    display: none;
+  }
+  body header .logo img {
+    width: 100%;
+  }
+  body header .nav_desktop {
+    display: block;
+    margin-top: 4em;
+  }
+  body header .nav_desktop ul {
+    display: inline-flex;
+    place-content: space-evenly;
+    width: 45em;
+    float: right;
+  }
+  body header .nav_desktop ul li > a {
+    color: white;
+    text-decoration: none;
+    font-size: 2em;
+    font-weight: 300;
+    -moz-transition-duration: 0.25s;
+    -o-transition-duration: 0.25s;
+    -webkit-transition-duration: 0.25s;
+    transition-duration: 0.25s;
+    -moz-transition-timing-function: ease-in;
+    -o-transition-timing-function: ease-in;
+    -webkit-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
+  }
+  body header .nav_desktop ul li > a:hover {
+    opacity: 0.8;
+  }
+  body header .dark_color ul li a {
+    color: rgba(0, 0, 0, 0.7);
+    font-weight: 400;
+  }
+}
+body .bg_img {
+  background-image: url("../img/bg1.jpg");
+  height: 100vh;
+  width: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+body .bg_img .intro_lines {
+  position: absolute;
+  top: 76%;
+  left: 10px;
+  color: #fff;
+  text-shadow: 1px 1px 1px #241a11ad;
+}
+body .bg_img .intro_lines h1 {
+  font-size: 2.67em;
+  line-height: 1.05263em;
+}
+body .bg_img .intro_lines h3 {
+  font-size: 2.3em;
+  padding-top: 0.15em;
+  line-height: 1.11111em;
+}
+@media (min-width: 465px) {
+  body .bg_img .intro_lines h1 {
+    font-size: 4em;
+  }
+  body .bg_img .intro_lines h3 {
+    font-size: 2.36em;
+    padding-top: 0.1em;
+  }
+}
+@media (min-width: 600px) {
+  body .bg_img .intro_lines {
+    left: 25px;
+  }
+  body .bg_img .intro_lines h1 {
+    font-size: 5em;
+  }
+  body .bg_img .intro_lines h3 {
+    font-size: 2.95em;
+  }
+}
+@media (min-width: 1050px) {
+  body .bg_img .intro_lines h1 {
+    font-size: 9em;
+  }
+}
+body .main_content h2 {
+  font-family: "Source Serif Pro", serif;
+  position: relative;
+  text-align: center;
+  top: 2.6em;
+  font-size: 4em;
+  color: #7c5966;
+  margin-bottom: 3.4em;
+}
+body .main_content .fashionHistory-twenties {
+  background: url("../img/flappers.jpg") center 3% no-repeat;
+  border: 1px solid #6d4071;
+  opacity: 0.9;
+  width: 100%;
+  height: 38em;
+  background-size: cover;
+  position: relative;
+  margin-bottom: 1em;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  -moz-transition-timing-function: ease-in;
+  -o-transition-timing-function: ease-in;
+  -webkit-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+}
+body .main_content .fashionHistory-twenties:hover {
+  cursor: pointer;
+}
+body .main_content .fashionHistory-twenties:after {
+  content: "From Victorian Era To Flappers";
+  position: absolute;
+  background-color: rgba(46, 27, 48, 0.6);
+  width: 100%;
+  color: white;
+  font-size: 1.55em;
+  padding: 2.46em 0.57143em 1em;
+  bottom: 0;
+  -moz-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  -moz-transition-timing-function: ease-in;
+  -o-transition-timing-function: ease-in;
+  -webkit-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+}
+body .main_content .fashionHistory-twenties:hover:after {
+  background-color: #2e1b30;
+}
+body .main_content .fashionHistory-twenties h4 {
+  font-size: 2em;
+  position: absolute;
+  color: white;
+  bottom: 37px;
+  z-index: 10;
+  left: 8px;
+}
+body .main_content .fashionHistory-fifties {
+  background-position-y: 26%;
+}
+@media (min-width: 600px) {
+  body .main_content .fashionHistory-twenties {
+    width: 48.9%;
+    display: inline-block;
+  }
+  body .main_content .fashionHistory-fifties, body .main_content .fashionHistory-modern {
+    margin-left: 1em;
+  }
+}
+@media (min-width: 900px) {
+  body .main_content .fashionHistory-twenties {
+    height: 60em;
+    margin-bottom: 1.73913em;
+  }
+  body .main_content .fashionHistory-fifties, body .main_content .fashionHistory-modern {
+    margin-left: 1.73913em;
+  }
+}
+@media (min-width: 1050px) {
+  body .main_content {
+    max-width: 1050px;
+    margin: auto;
+  }
+}
+body .main_content .fashionHistory-fifties {
+  background: url("../img/fifties.jpg") center 3% no-repeat;
+  border: 1px solid #6d4071;
+  opacity: 0.9;
+  width: 100%;
+  height: 38em;
+  background-size: cover;
+  position: relative;
+  margin-bottom: 1em;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  -moz-transition-timing-function: ease-in;
+  -o-transition-timing-function: ease-in;
+  -webkit-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+}
+body .main_content .fashionHistory-fifties:hover {
+  cursor: pointer;
+}
+body .main_content .fashionHistory-fifties:after {
+  content: "Fashion Golden Age of Haute Couture";
+  position: absolute;
+  background-color: rgba(46, 27, 48, 0.6);
+  width: 100%;
+  color: white;
+  font-size: 1.55em;
+  padding: 2.46em 0.57143em 1em;
+  bottom: 0;
+  -moz-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  -moz-transition-timing-function: ease-in;
+  -o-transition-timing-function: ease-in;
+  -webkit-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+}
+body .main_content .fashionHistory-fifties:hover:after {
+  background-color: #2e1b30;
+}
+body .main_content .fashionHistory-fifties h4 {
+  font-size: 2em;
+  position: absolute;
+  color: white;
+  bottom: 37px;
+  z-index: 10;
+  left: 8px;
+}
+body .main_content .fashionHistory-fifties {
+  background-position-y: 26%;
+}
+@media (min-width: 600px) {
+  body .main_content .fashionHistory-fifties {
+    width: 48.9%;
+    display: inline-block;
+  }
+  body .main_content .fashionHistory-fifties, body .main_content .fashionHistory-modern {
+    margin-left: 1em;
+  }
+}
+@media (min-width: 900px) {
+  body .main_content .fashionHistory-fifties {
+    height: 60em;
+    margin-bottom: 1.73913em;
+  }
+  body .main_content .fashionHistory-fifties, body .main_content .fashionHistory-modern {
+    margin-left: 1.73913em;
+  }
+}
+@media (min-width: 1050px) {
+  body .main_content {
+    max-width: 1050px;
+    margin: auto;
+  }
+}
+body .main_content .fashionHistory-seventies {
+  background: url("../img/seventies.jpg") center 3% no-repeat;
+  border: 1px solid #6d4071;
+  opacity: 0.9;
+  width: 100%;
+  height: 38em;
+  background-size: cover;
+  position: relative;
+  margin-bottom: 1em;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  -moz-transition-timing-function: ease-in;
+  -o-transition-timing-function: ease-in;
+  -webkit-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+}
+body .main_content .fashionHistory-seventies:hover {
+  cursor: pointer;
+}
+body .main_content .fashionHistory-seventies:after {
+  content: "Rebellious Fashion - Hippie, Punk, Disco";
+  position: absolute;
+  background-color: rgba(46, 27, 48, 0.6);
+  width: 100%;
+  color: white;
+  font-size: 1.55em;
+  padding: 2.46em 0.57143em 1em;
+  bottom: 0;
+  -moz-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  -moz-transition-timing-function: ease-in;
+  -o-transition-timing-function: ease-in;
+  -webkit-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+}
+body .main_content .fashionHistory-seventies:hover:after {
+  background-color: #2e1b30;
+}
+body .main_content .fashionHistory-seventies h4 {
+  font-size: 2em;
+  position: absolute;
+  color: white;
+  bottom: 37px;
+  z-index: 10;
+  left: 8px;
+}
+body .main_content .fashionHistory-fifties {
+  background-position-y: 26%;
+}
+@media (min-width: 600px) {
+  body .main_content .fashionHistory-seventies {
+    width: 48.9%;
+    display: inline-block;
+  }
+  body .main_content .fashionHistory-fifties, body .main_content .fashionHistory-modern {
+    margin-left: 1em;
+  }
+}
+@media (min-width: 900px) {
+  body .main_content .fashionHistory-seventies {
+    height: 60em;
+    margin-bottom: 1.73913em;
+  }
+  body .main_content .fashionHistory-fifties, body .main_content .fashionHistory-modern {
+    margin-left: 1.73913em;
+  }
+}
+@media (min-width: 1050px) {
+  body .main_content {
+    max-width: 1050px;
+    margin: auto;
+  }
+}
+body .main_content .fashionHistory-modern {
+  background: url("../img/modern.jpg") center 3% no-repeat;
+  border: 1px solid #6d4071;
+  opacity: 0.9;
+  width: 100%;
+  height: 38em;
+  background-size: cover;
+  position: relative;
+  margin-bottom: 1em;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  -moz-transition-timing-function: ease-in;
+  -o-transition-timing-function: ease-in;
+  -webkit-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+}
+body .main_content .fashionHistory-modern:hover {
+  cursor: pointer;
+}
+body .main_content .fashionHistory-modern:after {
+  content: "Modern Fashion Trends and Fast Fashion";
+  position: absolute;
+  background-color: rgba(46, 27, 48, 0.6);
+  width: 100%;
+  color: white;
+  font-size: 1.55em;
+  padding: 2.46em 0.57143em 1em;
+  bottom: 0;
+  -moz-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  -moz-transition-timing-function: ease-in;
+  -o-transition-timing-function: ease-in;
+  -webkit-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+}
+body .main_content .fashionHistory-modern:hover:after {
+  background-color: #2e1b30;
+}
+body .main_content .fashionHistory-modern h4 {
+  font-size: 2em;
+  position: absolute;
+  color: white;
+  bottom: 37px;
+  z-index: 10;
+  left: 8px;
+}
+body .main_content .fashionHistory-fifties {
+  background-position-y: 26%;
+}
+@media (min-width: 600px) {
+  body .main_content .fashionHistory-modern {
+    width: 48.9%;
+    display: inline-block;
+  }
+  body .main_content .fashionHistory-fifties, body .main_content .fashionHistory-modern {
+    margin-left: 1em;
+  }
+}
+@media (min-width: 900px) {
+  body .main_content .fashionHistory-modern {
+    height: 60em;
+    margin-bottom: 1.73913em;
+  }
+  body .main_content .fashionHistory-fifties, body .main_content .fashionHistory-modern {
+    margin-left: 1.73913em;
+  }
+}
+@media (min-width: 1050px) {
+  body .main_content {
+    max-width: 1050px;
+    margin: auto;
+  }
+}
+body .singleHistory_wrapper .banner_image {
+  width: 100%;
+  margin-top: 107px;
+}
+body .singleHistory_wrapper .imageBanner-twenties {
+  position: relative;
+  color: white;
+  height: 3.4em;
+  top: -1em;
+  font-family: "Source Serif Pro", serif;
+  font-size: 2em;
+  background: #918792;
+}
+body .singleHistory_wrapper .imageBanner-twenties:after {
+  content: "From Victorian Era To Flappers";
+  line-height: 3.6em;
+  display: flex;
+  place-content: center;
+}
+body .singleHistory_wrapper .imageBanner-fifties {
+  position: relative;
+  color: white;
+  height: 3.4em;
+  top: -1em;
+  font-family: "Source Serif Pro", serif;
+  font-size: 2em;
+  background: #918792;
+}
+body .singleHistory_wrapper .imageBanner-fifties:after {
+  content: "1950-1970: Fashion Golden Age";
+  line-height: 3.6em;
+  display: flex;
+  place-content: center;
+}
+body .singleHistory_wrapper .imageBanner-seventies {
+  position: relative;
+  color: white;
+  height: 3.4em;
+  top: -1em;
+  font-family: "Source Serif Pro", serif;
+  font-size: 2em;
+  background: #918792;
+}
+body .singleHistory_wrapper .imageBanner-seventies:after {
+  content: "1970-1990: Rebellious Fashion";
+  line-height: 3.6em;
+  display: flex;
+  place-content: center;
+}
+body .singleHistory_wrapper .imageBanner-modern {
+  position: relative;
+  color: white;
+  height: 3.4em;
+  top: -1em;
+  font-family: "Source Serif Pro", serif;
+  font-size: 2em;
+  background: #918792;
+}
+body .singleHistory_wrapper .imageBanner-modern:after {
+  content: "Modern Fashion Trends";
+  line-height: 3.6em;
+  display: flex;
+  place-content: center;
+}
+body .singleHistory_wrapper p {
+  width: 100%;
+  float: left;
+  margin-left: 0;
+  margin-right: 0;
+  font-size: 1.6em;
+  line-height: 1.4em;
+  padding: 0 1em;
+}
+body .singleHistory_wrapper .text_andImage p {
+  width: 100%;
+  float: left;
+  margin-left: 0;
+  margin-right: 0;
+  font-size: 1.6em;
+  line-height: 1.4em;
+  padding-top: 0.76923em;
+}
+body .singleHistory_wrapper .text_andImage .side_image {
+  width: 100%;
+  padding: 2.4em 2em;
+}
+@media (min-width: 800px) {
+  body .singleHistory_wrapper .text_andImage p {
+    width: 47.45763%;
+    float: left;
+    margin-right: 1.69492%;
+  }
+  body .singleHistory_wrapper .text_andImage .side_image {
+    width: 49.15254%;
+    float: left;
+    margin-right: 1.69492%;
+    float: right;
+  }
+}
+body .singleHistory_wrapper .nav_arrows {
+  clear: both;
+  text-align: center;
+  padding: 0.4em 0 0;
+  font-size: 19px;
+}
+body .singleHistory_wrapper .nav_arrows .pageLink-enabled {
+  color: #565656;
+  text-decoration: none;
+  padding: 0 0.33333em;
+}
+body .singleHistory_wrapper .nav_arrows .pageLink-enabled:hover {
+  opacity: 0.9;
+  text-decoration: underline;
+}
+body .singleHistory_wrapper .nav_arrows .pageLink-disabled {
+  color: #b7b7b7;
+  text-decoration: none;
+  padding: 0 0.33333em;
+}
+body .singleHistory_wrapper .nav_arrows .pageLink-disabled:hover {
+  opacity: 0.9;
+  text-decoration: underline;
+  text-decoration: none !important;
+}
+@media (min-width: 1050px) {
+  body .singleHistory_wrapper {
+    width: 1050px;
+    margin: auto;
+  }
+  body .singleHistory_wrapper .imageBanner-twenties {
+    font-size: 6em;
+    height: 2em;
+    width: 97%;
+    margin: auto;
+  }
+  body .singleHistory_wrapper .imageBanner-twenties:after {
+    line-height: 2.1em;
+  }
+  body .singleHistory_wrapper .imageBanner-fifties {
+    font-size: 6em;
+    height: 2em;
+    width: 97%;
+    margin: auto;
+  }
+  body .singleHistory_wrapper .imageBanner-fifties:after {
+    line-height: 2.1em;
+  }
+  body .singleHistory_wrapper .imageBanner-seventies {
+    font-size: 6em;
+    height: 2em;
+    width: 97%;
+    margin: auto;
+  }
+  body .singleHistory_wrapper .imageBanner-seventies:after {
+    line-height: 2.1em;
+  }
+  body .singleHistory_wrapper .imageBanner-modern {
+    font-size: 6em;
+    height: 2em;
+    width: 97%;
+    margin: auto;
+  }
+  body .singleHistory_wrapper .imageBanner-modern:after {
+    line-height: 2.1em;
+  }
+  body .singleHistory_wrapper p {
+    margin-top: -2em;
+  }
+  body .singleHistory_wrapper .text_andImage p {
+    margin-top: 0.4em;
+  }
+}
+body .gallery_content {
+  max-width: 63.2em;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1em;
+}
+body .gallery_content:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+body .gallery_content h2 {
+  font-family: "Source Serif Pro", serif;
+  position: relative;
+  text-align: center;
+  top: 2.2em;
+  font-size: 5em;
+  color: #7c5966;
+}
+body .gallery_content a:link, body .gallery_content a:focus, body .gallery_content a:active {
+  outline: none !important;
+}
+body .gallery_content .galleryImage-1 {
+  width: 100%;
+  height: 30em;
+  background: URL("../img/gallery_img/1.jpg") center center no-repeat;
+  margin-bottom: 1em;
+  background-size: cover;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+body .gallery_content .galleryImage-1:hover {
+  background-blend-mode: multiply;
+  background-color: rgba(0, 0, 0, 0.2);
+  -moz-transition: all 0.8s ease-in-out;
+  -o-transition: all 0.8s ease-in-out;
+  -webkit-transition: all 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out;
+}
+body .gallery_content .galleryImage-2 {
+  width: 100%;
+  height: 30em;
+  background: URL("../img/gallery_img/2.jpg") center center no-repeat;
+  margin-bottom: 1em;
+  background-size: cover;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+body .gallery_content .galleryImage-2:hover {
+  background-blend-mode: multiply;
+  background-color: rgba(0, 0, 0, 0.2);
+  -moz-transition: all 0.8s ease-in-out;
+  -o-transition: all 0.8s ease-in-out;
+  -webkit-transition: all 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out;
+}
+body .gallery_content .galleryImage-3 {
+  width: 100%;
+  height: 30em;
+  background: URL("../img/gallery_img/3.jpg") center center no-repeat;
+  margin-bottom: 1em;
+  background-size: cover;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+body .gallery_content .galleryImage-3:hover {
+  background-blend-mode: multiply;
+  background-color: rgba(0, 0, 0, 0.2);
+  -moz-transition: all 0.8s ease-in-out;
+  -o-transition: all 0.8s ease-in-out;
+  -webkit-transition: all 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out;
+}
+body .gallery_content .galleryImage-4 {
+  width: 100%;
+  height: 30em;
+  background: URL("../img/gallery_img/4.jpg") center center no-repeat;
+  margin-bottom: 1em;
+  background-size: cover;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+body .gallery_content .galleryImage-4:hover {
+  background-blend-mode: multiply;
+  background-color: rgba(0, 0, 0, 0.2);
+  -moz-transition: all 0.8s ease-in-out;
+  -o-transition: all 0.8s ease-in-out;
+  -webkit-transition: all 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out;
+}
+body .gallery_content .galleryImage-5 {
+  width: 100%;
+  height: 30em;
+  background: URL("../img/gallery_img/5.jpg") center center no-repeat;
+  margin-bottom: 1em;
+  background-size: cover;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+body .gallery_content .galleryImage-5:hover {
+  background-blend-mode: multiply;
+  background-color: rgba(0, 0, 0, 0.2);
+  -moz-transition: all 0.8s ease-in-out;
+  -o-transition: all 0.8s ease-in-out;
+  -webkit-transition: all 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out;
+}
+body .gallery_content .galleryImage-6 {
+  width: 100%;
+  height: 30em;
+  background: URL("../img/gallery_img/6.jpg") center center no-repeat;
+  margin-bottom: 1em;
+  background-size: cover;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+body .gallery_content .galleryImage-6:hover {
+  background-blend-mode: multiply;
+  background-color: rgba(0, 0, 0, 0.2);
+  -moz-transition: all 0.8s ease-in-out;
+  -o-transition: all 0.8s ease-in-out;
+  -webkit-transition: all 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out;
+}
+body .gallery_content .galleryImage-7 {
+  width: 100%;
+  height: 30em;
+  background: URL("../img/gallery_img/7.jpg") center center no-repeat;
+  margin-bottom: 1em;
+  background-size: cover;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+body .gallery_content .galleryImage-7:hover {
+  background-blend-mode: multiply;
+  background-color: rgba(0, 0, 0, 0.2);
+  -moz-transition: all 0.8s ease-in-out;
+  -o-transition: all 0.8s ease-in-out;
+  -webkit-transition: all 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out;
+}
+body .gallery_content .galleryImage-8 {
+  width: 100%;
+  height: 30em;
+  background: URL("../img/gallery_img/8.jpg") center center no-repeat;
+  margin-bottom: 1em;
+  background-size: cover;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+body .gallery_content .galleryImage-8:hover {
+  background-blend-mode: multiply;
+  background-color: rgba(0, 0, 0, 0.2);
+  -moz-transition: all 0.8s ease-in-out;
+  -o-transition: all 0.8s ease-in-out;
+  -webkit-transition: all 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out;
+}
+body .gallery_content .galleryImage-1 {
+  margin-top: 15em;
+}
+body .gallery_content .galleryImage-2 {
+  background-position-y: 0;
+}
+body .gallery_content .galleryImage-3 {
+  background-position-y: 0;
+}
+body .gallery_content .galleryImage-4 {
+  background-position-y: 0;
+}
+@media (min-width: 400px) {
+  body .gallery_content .galleryImage-1 {
+    height: 40em;
+  }
+  body .gallery_content .galleryImage-2 {
+    height: 40em;
+  }
+  body .gallery_content .galleryImage-3 {
+    height: 40em;
+  }
+  body .gallery_content .galleryImage-4 {
+    height: 40em;
+  }
+  body .gallery_content .galleryImage-5 {
+    height: 40em;
+  }
+  body .gallery_content .galleryImage-6 {
+    height: 40em;
+  }
+  body .gallery_content .galleryImage-7 {
+    height: 40em;
+  }
+  body .gallery_content .galleryImage-8 {
+    height: 40em;
+  }
+}
+@media (min-width: 647px) {
+  body .gallery_content .galleryImage-1 {
+    width: 30em;
+    height: 30em;
+    display: inline-block;
+  }
+  body .gallery_content .galleryImage-2 {
+    width: 30em;
+    height: 30em;
+    display: inline-block;
+  }
+  body .gallery_content .galleryImage-3 {
+    width: 30em;
+    height: 30em;
+    display: inline-block;
+  }
+  body .gallery_content .galleryImage-4 {
+    width: 30em;
+    height: 30em;
+    display: inline-block;
+  }
+  body .gallery_content .galleryImage-5 {
+    width: 30em;
+    height: 30em;
+    display: inline-block;
+  }
+  body .gallery_content .galleryImage-6 {
+    width: 30em;
+    height: 30em;
+    display: inline-block;
+  }
+  body .gallery_content .galleryImage-7 {
+    width: 30em;
+    height: 30em;
+    display: inline-block;
+  }
+  body .gallery_content .galleryImage-8 {
+    width: 30em;
+    height: 30em;
+    display: inline-block;
+  }
+  body .gallery_content .galleryImage-2 {
+    margin-left: 1em;
+  }
+  body .gallery_content .galleryImage-4 {
+    margin-left: 1em;
+  }
+  body .gallery_content .galleryImage-6 {
+    margin-left: 1em;
+  }
+  body .gallery_content .galleryImage-8 {
+    margin-left: 1em;
+  }
+}
+@media (min-width: 857px) {
+  body .gallery_content {
+    max-width: 84.2em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  body .gallery_content:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+  body .gallery_content .galleryImage-1 {
+    width: 40em;
+    height: 40em;
+    background-size: contain;
+    margin-bottom: 2em;
+  }
+  body .gallery_content .galleryImage-2 {
+    width: 40em;
+    height: 40em;
+    background-size: contain;
+    margin-bottom: 2em;
+  }
+  body .gallery_content .galleryImage-3 {
+    width: 40em;
+    height: 40em;
+    background-size: contain;
+    margin-bottom: 2em;
+  }
+  body .gallery_content .galleryImage-4 {
+    width: 40em;
+    height: 40em;
+    background-size: contain;
+    margin-bottom: 2em;
+  }
+  body .gallery_content .galleryImage-5 {
+    width: 40em;
+    height: 40em;
+    background-size: contain;
+    margin-bottom: 2em;
+  }
+  body .gallery_content .galleryImage-6 {
+    width: 40em;
+    height: 40em;
+    background-size: contain;
+    margin-bottom: 2em;
+  }
+  body .gallery_content .galleryImage-7 {
+    width: 40em;
+    height: 40em;
+    background-size: contain;
+    margin-bottom: 2em;
+  }
+  body .gallery_content .galleryImage-8 {
+    width: 40em;
+    height: 40em;
+    background-size: contain;
+    margin-bottom: 2em;
+  }
+  body .gallery_content .galleryImage-2 {
+    margin-left: 2em;
+  }
+  body .gallery_content .galleryImage-4 {
+    margin-left: 2em;
+  }
+  body .gallery_content .galleryImage-6 {
+    margin-left: 2em;
+  }
+  body .gallery_content .galleryImage-8 {
+    margin-left: 2em;
+  }
+  body .gallery_content .galleryImage-1 {
+    margin-top: 15em;
+  }
+  body .gallery_content .galleryImage-2 {
+    margin-top: 15em;
+  }
+}
+@media (min-width: 1157px) {
+  body .gallery_content {
+    max-width: 114.2em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  body .gallery_content:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+  body .gallery_content .galleryImage-1 {
+    width: 55em;
+    height: 55em;
+  }
+  body .gallery_content .galleryImage-2 {
+    width: 55em;
+    height: 55em;
+  }
+  body .gallery_content .galleryImage-3 {
+    width: 55em;
+    height: 55em;
+  }
+  body .gallery_content .galleryImage-4 {
+    width: 55em;
+    height: 55em;
+  }
+  body .gallery_content .galleryImage-5 {
+    width: 55em;
+    height: 55em;
+  }
+  body .gallery_content .galleryImage-6 {
+    width: 55em;
+    height: 55em;
+  }
+  body .gallery_content .galleryImage-7 {
+    width: 55em;
+    height: 55em;
+  }
+  body .gallery_content .galleryImage-8 {
+    width: 55em;
+    height: 55em;
+  }
+}
+body .bg_contact {
+  background-image: url("../img/contactBg.jpg");
+  height: 100vh;
+  width: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  visibility: hidden;
+}
+body .bg_contact h2 {
+  visibility: visible;
+  font-family: 'Tangerine', cursive;
+  position: relative;
+  text-align: center;
+  top: 2.2em;
+  font-size: 5em;
+  color: #7c5966;
+}
+body .bg_contact form {
+  visibility: visible;
+  background-color: #e7e7e7;
+  position: relative;
+  top: 13.5em;
+  text-align: center;
+}
+body .bg_contact form input, body .bg_contact form textarea {
+  width: 89%;
+  padding: 1em;
+  font-size: 1.4em;
+  margin-bottom: 1em;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid #bcbcbc;
+}
+body .bg_contact form input:-moz-placeholder, body .bg_contact form textarea:-moz-placeholder {
+  color: #bebebe;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+}
+body .bg_contact form input::-moz-placeholder, body .bg_contact form textarea::-moz-placeholder {
+  color: #bebebe;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+}
+body .bg_contact form input:-ms-input-placeholder, body .bg_contact form textarea:-ms-input-placeholder {
+  color: #bebebe;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+}
+body .bg_contact form input::-webkit-input-placeholder, body .bg_contact form textarea::-webkit-input-placeholder {
+  color: #bebebe;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+}
+body .bg_contact form input[type=submit], body .bg_contact form textarea[type=submit] {
+  width: 9em;
+  border: none;
+  background-color: #7c5966;
+  color: #fff;
+  font-size: 1.9em;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  padding: 0.75em;
+}
+body .bg_contact form input[type=submit]:focus, body .bg_contact form textarea[type=submit]:focus {
+  outline: none;
+}
+body .bg_contact form input[type=submit]:hover, body .bg_contact form textarea[type=submit]:hover {
+  opacity: 0.9;
+}
+body .bg_contact form input:focus, body .bg_contact form textarea:focus {
+  outline: 1px solid #b98cbe;
+}
+body .bg_contact form textarea {
+  padding: 3em 1em;
+}
+body .bg_contact form textarea:-moz-placeholder {
+  position: relative;
+  top: -25px;
+}
+body .bg_contact form textarea::-moz-placeholder {
+  position: relative;
+  top: -25px;
+}
+body .bg_contact form textarea:-ms-input-placeholder {
+  position: relative;
+  top: -25px;
+}
+body .bg_contact form textarea::-webkit-input-placeholder {
+  position: relative;
+  top: -25px;
+}
+@media (min-width: 550px) {
+  body .bg_contact form {
+    height: auto;
+    background-color: transparent;
+  }
+  body .bg_contact form input, body .bg_contact form textarea {
+    width: 55%;
+  }
+  body .bg_contact form input[type=submit], body .bg_contact form textarea[type=submit] {
+    width: 55%;
+  }
+}
+@media (min-width: 800px) {
+  body .bg_contact {
+    visibility: visible;
+  }
+  body .bg_contact h2, body .bg_contact form {
+    float: right;
+    width: 600px;
+  }
+}
+@media (min-width: 1050px) {
+  body .bg_contact h2, body .bg_contact form {
+    width: 800px;
+  }
+}
+@media (min-width: 1550px) {
+  body .bg_contact h2, body .bg_contact form {
+    display: inline-block;
+  }
+  body .bg_contact form {
+    clear: both;
+  }
+}
+body footer {
+  border-top: solid 1px #7b5965;
+  margin: 3em 2em 2em;
+}
+body footer .footer_border {
+  display: none;
+}
+body footer .icon_wrapper {
+  text-align: center;
+  padding: 2em 0 1em;
+  font-size: 1.42857em;
+}
+body footer .icon_wrapper .fa-instagram, body footer .icon_wrapper .fa-facebook, body footer .icon_wrapper .fa-pinterest {
+  width: 1.9em;
+  color: #e7e7e7;
+  cursor: pointer;
+  background-color: #565656;
+  padding: 0.42em;
+  border-radius: 50%;
+  text-align: center;
+  margin: 0 0.3em;
+  text-decoration: none;
+}
+body footer .icon_wrapper .fa-facebook {
+  background-color: #4d6faa;
+}
+body footer .icon_wrapper .fa-pinterest {
+  background-color: #cc3531;
+}
+body footer .footer_text {
+  font-size: 1.42857em;
+  text-align: center;
+  color: #545454;
+}
+@media (min-width: 1050px) {
+  body footer {
+    border-top: 0px;
+  }
+  body footer .footer_border {
+    display: block;
+    width: 92.5%;
+    margin: 2em auto 0;
+  }
+  body footer .icon_wrapper {
+    padding: 1.5em 0 1em;
+  }
+  body footer .footer_text {
+    font-size: 1.53846em;
+  }
+}
+body .overlay {
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  display: none;
+}
+body .overlay.show {
+  display: block;
+}
